@@ -25,15 +25,11 @@
   
       <div class="image" *ngIf="userProfile.imagePath; else emptyMessage">
         <!-- Display the current profile image -->
-        <!-- <label for="fileInput">
-          <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
-          <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none">
-        </label> -->
 
         <label for="fileInput">
-            <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
-            <input type="file" id="fileInput" style="display: none">
-          </label>
+          <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none">
+        </label>
         <!-- Hidden file input -->
   
       </div>

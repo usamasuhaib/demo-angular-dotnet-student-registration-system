@@ -31,6 +31,9 @@ ngOnInit(): void {
   this.loadUserProfile();
 }
 
+onHome(){
+  this.router.navigate(['admin']);
+}
 onAccount(){
   this.router.navigate(['admin/profile'])
 

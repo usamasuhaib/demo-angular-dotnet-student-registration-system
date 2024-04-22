@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,9 @@ export class ProfileComponent {
   }
 
 
-  constructor(private userService:UserService, private formBuilder:FormBuilder, private httpClient:HttpClient, private router:Router){
+  constructor(private userService:UserService, private formBuilder:FormBuilder,
+    private toaster:ToastrService,
+    private httpClient:HttpClient, private router:Router){
 
   }
 
@@ -39,6 +42,38 @@ export class ProfileComponent {
       }
     );
   }
+
+
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+  
+    if (file) {
+      const userId = this.userProfile?.userId; // Use optional chaining to handle potential undefined userProfile
+  
+      if (!userId) {
+        console.error('User ID not available.');
+        return; // Abort upload if user ID is not available
+      }
+  
+      this.userService.uploadProfileImage(file, userId).subscribe(
+        () => {
+          
+          this.toaster.success("Profile image uploaded successfully'")
+          this.loadUserProfile(); // Refresh user profile data after successful upload
+          console.log('Profile image uploaded successfully');
+        },
+        (error) => {
+          console.error('Error uploading profile image:', error);
+          // Optionally show an error message to the user or handle the error appropriately
+        }
+      );
+    }
+  }
+
+
+
+
 
 
 }
