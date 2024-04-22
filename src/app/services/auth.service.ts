@@ -6,6 +6,7 @@ import { JwtAuth } from '../authentication/jwt-auth.model';
 import { RegisterDto } from '../DTOs/register-dto.model';
 import { LoginDto } from '../DTOs/login-dto.model';
 import { LocalizedString } from '@angular/compiler';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   baseUrl='http://localhost:5182';
 
 
-  constructor(private httpClient:HttpClient, private router:Router) { }
+  constructor(private httpClient:HttpClient, private router:Router, private toaster:ToastrService) { }
 
   setToken(token:string){
     localStorage.setItem('token',token);
@@ -35,6 +36,8 @@ export class AuthService {
   
     logout(){
       localStorage.removeItem('token');
+
+      this.toaster.success("Logged Out successfully")
       this.router.navigate(['login']);
     }
 

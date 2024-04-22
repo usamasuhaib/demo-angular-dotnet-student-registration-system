@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { LoginDto } from '../../DTOs/login-dto.model';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
 isLoggedIn=sessionStorage.getItem('isLoggedIn');
 
   falock = faLock;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private toaster:ToastrService) {
 
   }
   ngOnInit(){
@@ -53,10 +54,14 @@ isLoggedIn=sessionStorage.getItem('isLoggedIn');
           console.log(result.token);
 
           // Redirect to dashboard or desired route
+
+          this.toaster.success("Welcome back")
           this.router.navigate(['admin']);
         } else {
           console.error('Login failed'); // Handle invalid response
           localStorage.removeItem('token');
+          this.toaster.error("Login Failed")
+
           this.authService.logout();
 
 
