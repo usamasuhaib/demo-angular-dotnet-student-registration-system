@@ -1,0 +1,38 @@
+<div class="main-list-container">
+    <div class="table-heading">
+      <h3>Registered Students</h3>
+    </div>
+    <div class="table-body">
+
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr >
+                    <td>01</td>
+                    <td>Usama</td>
+                    <td>usamagmail.com</td>
+                    <td>5513377</td>
+                    <td class="action-btns">
+                        <button class="edit" (click)="onEdit(1)">Edit</button>
+                        <button class="delete" (click)="onDelete(1)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+            <ng-template #emptyMessage>
+                <tr class="no-record">
+                <td colspan="5">No records found.</td>
+                </tr>
+            </ng-template>
+        </table>
+       
+      
+    </div>
+  </div>
