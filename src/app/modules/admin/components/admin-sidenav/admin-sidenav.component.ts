@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAdd, faContactCard, faDashboard, faInfo, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faContactCard, faDashboard, faInfo, faSignOut, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-admin-sidenav',
@@ -18,5 +19,20 @@ export class AdminSidenavComponent {
 
   faContact=faContactCard
   faAbout=faInfo
+
+  faLogout=faSignOut;
+
+  constructor(private authService:AuthService){
+
+  }
+
+  ngOnInit(){
+
+  }
+
+  logout(){
+
+    this.authService.logout();
+  }
 
 }

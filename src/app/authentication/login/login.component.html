@@ -9,12 +9,12 @@
            
             <h3>Welcome</h3>
         </div>
-        <form action="" class="form-body">
-            <input type="text" placeholder="email">
-            <input type="password" placeholder="password">
+        <form class="form-body" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <input type="text" placeholder="email" formControlName="email">
+            <input type="password" placeholder="password" formControlName="password">
 
             <div class="form-footer">
-                <button>Login</button>
+                <button [disabled]="!loginForm.valid">Login</button>
                 <small><p>Dont't have an account? <a routerLink="../register">Register here</a></p> </small>
                 
             </div>

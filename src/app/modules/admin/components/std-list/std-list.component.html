@@ -14,15 +14,15 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody class="tbody">
-                <tr >
-                    <td>01</td>
-                    <td>Usama</td>
-                    <td>usamagmail.com</td>
-                    <td>5513377</td>
+            <tbody class="tbody" *ngIf="stdList.length>0; else emptyMessage">
+                <tr *ngFor="let std of stdList">
+                    <td>{{std.id}}</td>
+                    <td>{{std.name}}</td>
+                    <td>{{std.email}}</td>
+                    <td>{{std.phone}}</td>
                     <td class="action-btns">
-                        <button class="edit" (click)="onEdit(1)">Edit</button>
-                        <button class="delete" (click)="onDelete(1)">Delete</button>
+                        <button class="edit" (click)="onEdit(std.id)">Edit</button>
+                        <button class="delete" (click)="onDelete(std.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
