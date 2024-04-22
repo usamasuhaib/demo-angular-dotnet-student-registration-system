@@ -1,0 +1,60 @@
+<div class="form-heading">
+
+    <h3>Profile</h3>
+  
+  </div>
+  
+  <div class="form-container">
+  
+    <div class="profile-body" *ngIf="userProfile">
+  
+      <div class="user-credientials">
+        <label for="">Name</label>
+        <input type="text" formControlName="name" value="{{ userProfile.userName }}" readonly>
+      </div>
+  
+      <div class="user-credientials">
+        <label for="">Email</label>
+        <input type="text" formControlName="name" value="{{ userProfile.email }}" readonly>
+      </div>
+  
+    </div>
+  
+    <div class="profile-image">
+      <!-- Display existing profile image -->
+  
+      <div class="image" *ngIf="userProfile.imagePath; else emptyMessage">
+        <!-- Display the current profile image -->
+        <!-- <label for="fileInput">
+          <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none">
+        </label> -->
+
+        <label for="fileInput">
+            <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
+            <input type="file" id="fileInput" style="display: none">
+          </label>
+        <!-- Hidden file input -->
+  
+      </div>
+  
+  
+      <div class="role">
+        Admin
+      </div>
+      <ng-template #emptyMessage>
+        <div class="image">
+          US
+        </div>
+      </ng-template>
+  
+  
+    </div>
+  
+    <div class="profile-body" *ngIf="!userProfile">
+      <div class="user-credientials">
+        <h3>Loading profile data....</h3>
+      </div>
+  
+    </div>
+  </div>

@@ -53,6 +53,17 @@
             color: chocolate;
 
         }
+
+
     }
 
+}
+
+.user-menu-btn{
+    display: flex;
+    fa-icon{
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
 }

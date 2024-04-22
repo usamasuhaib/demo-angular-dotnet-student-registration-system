@@ -6,6 +6,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StdFormComponent } from './components/std-form/std-form.component';
 import { StdListComponent } from './components/std-list/std-list.component';
+import { ProfileComponent } from './account/profile/profile.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path:'std-list',component:StdListComponent},
     {path:'about-us',component:AboutUsComponent},
     {path:'contact',component:ContactComponent},
+    {path:'profile',component:ProfileComponent},
     {path:'',component:AdminHomeComponent},
 
 

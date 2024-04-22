@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAdd, faContactCard, faDashboard, faInfo, faSignOut, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faContactCard, faDashboard, faInfo, faMailForward, faMessage, faPhone, faPhoneFlip, faSignOut, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../../services/auth.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class AdminSidenavComponent {
   faStd=faUserGraduate
   faDashboard=faDashboard
 
-  faContact=faContactCard
+  faContact=faPhone
+
   faAbout=faInfo
 
   faLogout=faSignOut;
@@ -30,9 +31,6 @@ export class AdminSidenavComponent {
 
   }
 
-  logout(){
 
-    this.authService.logout();
-  }
 
 }

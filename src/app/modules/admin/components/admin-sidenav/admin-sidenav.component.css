@@ -12,11 +12,12 @@
 
         .nav-item{
             padding: 15px 35px;
+            margin-bottom: 15px;
             cursor: pointer;
 
             fa-icon{
-                font-size: 23px;
-                margin-right: 20px;
+                font-size: 30px;
+                margin-right: 25px;
             }
             
         }
@@ -25,11 +26,7 @@
             color: blanchedalmond;
         }
 
-        #logout{
-            margin-top: 60px;
-            text-transform: uppercase;
-            font-size: larger;
-        }
+
     }
 }
 
