@@ -1,5 +1,5 @@
 <div class="navbar">
-    <div class="logo" (click)="onHome()">LOGO</div>
+    <div class="logo" (click)="onHome()">School Management System</div>
 
     <div class="user">
         <div class="username" *ngIf="userProfile">{{ userProfile.userName }}</div>
@@ -8,11 +8,18 @@
 
 
 
+
+
+
         <div mat-icon-button [matMenuTriggerFor]="menu" class="user-image">
 
-            US
+            <img [src]="'http://localhost:5182/Uploads/Images/' + userProfile.imagePath" alt="Profile Image">
+
 
         </div>
+
+
+
         <mat-menu #menu="matMenu" >
 
             <button mat-menu-item class="user-menu-btn" (click)="onAccount()">

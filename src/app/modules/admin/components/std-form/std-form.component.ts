@@ -6,6 +6,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { CommonModule } from '@angular/common';
 import { Student } from '../../../../models/student.model';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-std-form',
@@ -15,9 +16,15 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
   styleUrl: './std-form.component.css'
 })
 export class StdFormComponent {
-  constructor(private formBuilder: FormBuilder, private stdService: StudentService,
-    private router: Router, private httpClient: HttpClient, private toasterService: ToastrService,
-    private activeRoute: ActivatedRoute,) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private stdService: StudentService,
+    private router: Router,
+    private httpClient: HttpClient,
+    private toasterService: ToastrService,
+    private activeRoute: ActivatedRoute,
+    private title:Title,
+  ) {
 
   }
 
@@ -37,11 +44,20 @@ export class StdFormComponent {
     if (this.stdId) {
       this.isEdit = true;
 
+      this.title.setTitle("Update Student | School Management System")
+
       this.stdService.getStudentById(this.stdId).subscribe(result => {
         console.log(result);
         this.stdForm.patchValue(result);
       })
+      
     }
+    else{
+      this.title.setTitle("Add New Student | School Management System")
+
+    }
+
+
 
   }
 

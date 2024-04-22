@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-contact',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './admin-contact.component.css'
 })
 export class AdminContactComponent {
+
+  constructor(private title:Title){
+    this.title.setTitle("Contact-Us | School Management")
+
+  }
 
 }

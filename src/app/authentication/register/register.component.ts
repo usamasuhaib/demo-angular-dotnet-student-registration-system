@@ -7,6 +7,7 @@ import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { StudentService } from '../../services/student.service';
 import { AuthService } from '../../services/auth.service';
 import { RegisterDto } from '../../DTOs/register-dto.model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -19,10 +20,20 @@ export class RegisterComponent {
 
 
   faUser=faUserFriends;
-  constructor(private formBuilder:FormBuilder, private authService:AuthService, private router:Router){
+  constructor(
+    private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private router:Router,
+    private title:Title,
+
+  ){
 
   }
 
+  ngOnInit(){
+    this.title.setTitle(`Register User | School Management System`)
+
+  }
   registrationForm = this.formBuilder.group({
     userName:['',Validators.required],
     email: ['', [Validators.required, Validators.email]],

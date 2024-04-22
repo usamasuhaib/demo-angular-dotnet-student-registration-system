@@ -6,6 +6,7 @@ import { Student } from '../../../../models/student.model';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-std-list',
@@ -19,12 +20,16 @@ export class StdListComponent {
   stdList: Student[] = [];
 
 
-  constructor(private stdService: StudentService, private httpClient: HttpClient,
-    private router: Router, private toaster: ToastrService) {
-
-  }
+  constructor(
+    private stdService: StudentService,
+    private httpClient: HttpClient,
+    private router: Router, 
+    private toaster: ToastrService,
+    private title:Title,
+  ) { }
 
   ngOnInit() {
+    this.title.setTitle("Students List | School Management System")
     this.loadStudents()
   }
 

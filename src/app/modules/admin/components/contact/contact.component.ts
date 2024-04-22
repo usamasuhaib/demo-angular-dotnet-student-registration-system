@@ -5,6 +5,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { CommonModule } from '@angular/common';
 import { EmailDto } from '../../../../DTOs/email-dto.model';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -16,9 +17,13 @@ import { ToastrService } from 'ngx-toastr';
 export class ContactComponent {
 
 
-  constructor(private emailService:EmailService, private router:Router,
+  constructor(
+    private emailService:EmailService,
+    private router:Router,
     private toaster:ToastrService,
-    private formBuilder:FormBuilder){
+    private formBuilder:FormBuilder,
+    private title:Title,
+  ){
 
   }
 
@@ -29,6 +34,11 @@ export class ContactComponent {
     body: ['',[Validators.required]]
 
   });
+
+  ngOnInit(){
+    this.title.setTitle("Contact Us | School Management System")
+
+  }
 
   sendEmail(){
 

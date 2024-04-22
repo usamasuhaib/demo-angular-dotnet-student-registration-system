@@ -47,6 +47,12 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+
+            img{
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
         }
         .user-image:hover{
             border: 2px solid black;

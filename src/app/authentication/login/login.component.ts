@@ -7,6 +7,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { LoginDto } from '../../DTOs/login-dto.model';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +20,21 @@ export class LoginComponent {
 isLoggedIn=sessionStorage.getItem('isLoggedIn');
 
   falock = faLock;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private toaster:ToastrService) {
+
+
+  constructor(
+    private formBuilder: FormBuilder,
+     private authService: AuthService,
+     private router: Router,
+     private toaster:ToastrService,
+     private title:Title,
+    
+    ) {
 
   }
   ngOnInit(){
+    this.title.setTitle(`User Login | School Management System`)
+
     if(this.isLoggedIn==='true'){
       this.router.navigate(['admin'])
     }

@@ -2,7 +2,7 @@
     background-color: #7290DD;
       
         display: flex;
-        width: 300px;
+        width: 266px;
         height: 90vh;
     .nav-items{
         padding-top: 40px;
@@ -26,6 +26,10 @@
             color: blanchedalmond;
         }
 
+        .active{
+            background-color: black;
+            color: #fff;
+        }
 
     }
 }

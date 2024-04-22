@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -21,14 +22,25 @@ export class ProfileComponent {
   }
 
 
-  constructor(private userService:UserService, private formBuilder:FormBuilder,
+  constructor(
+    private userService:UserService,
+    private formBuilder:FormBuilder,
     private toaster:ToastrService,
-    private httpClient:HttpClient, private router:Router){
+    private httpClient:HttpClient,
+    private router:Router,
+    private title:Title,
+  ){
 
   }
 
   ngOnInit(){
+
+    const userName= this.userProfile.userName;
     this.loadUserProfile();
+    this.title.setTitle(`Profile | ${userName}`)
+
+   
+
 
   }
 

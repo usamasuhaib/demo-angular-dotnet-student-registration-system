@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterEvent, RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { Router, RouterEvent, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -11,4 +12,22 @@ import { RouterEvent, RouterLink } from '@angular/router';
 })
 export class NotFoundComponent {
 
+constructor(private router:Router, private title:Title){
+
+}
+
+ngOnInit(){
+  this.title.setTitle(`Page Not Found  | School Management System`)
+
+}
+  onHome(){
+    this.router.navigate(['admin'])
+
+  }
+
+  onContact(){
+    this.router.navigate(['admin/contact'])
+
+
+  }
 }
